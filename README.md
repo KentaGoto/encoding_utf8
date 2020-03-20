@@ -2,7 +2,7 @@
 
 ## Description  
 
-指定したファイルを UTF8（BOMなし）に変換します。
+UTF8（BOMなし）に変換します。
 
 ## Requirements  
 

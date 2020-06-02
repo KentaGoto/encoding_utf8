@@ -2,8 +2,9 @@
 
 ## Description  
 
-任意のファイルを UTF8（BOMなし）に変換します。
+Converts an arbitrary file to UTF8 (without BOM).  
 
 ## Requirements  
 
-encoding_utf8.bat と同じディレクトリに nkf.exe が必要です。
+- Windows  
+- nkf  

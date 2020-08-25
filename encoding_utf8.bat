@@ -1,24 +1,24 @@
 @echo off
 
 rem *******************************************************************
-rem [‹@”\à–¾]
-rem Šg’£q‚Åw’è‚µ‚½ƒtƒ@ƒCƒ‹‚ğ nkf ‚Å UTF8 ‚É•ÏŠ·‚·‚éB
-rem ƒfƒBƒŒƒNƒgƒŠ‚ğÄ‹Aˆ—‚µAƒtƒ@ƒCƒ‹–¼‚É‹ó”’‚ª‚ ‚Á‚Ä‚àˆ—‘ÎÛ‚Æ‚·‚éB
+rem [Function description]
+rem Convert the file specified by the extension to UTF8 using nkf.
+rem Recursive processing of the directory, even if there is a space in the file name.
 rem *******************************************************************
 
 setlocal enabledelayedexpansion
 
-echo UTF8iBOM –³‚µj‚É•ÏŠ·‚µ‚Ü‚·B
+echo UTF8ï¼ˆBOM ç„¡ã—ï¼‰ã«å¤‰æ›ã—ã¾ã™ã€‚
 echo;
-set /p d="‘ÎÛƒtƒHƒ‹ƒ_‚ğƒhƒ‰ƒbƒOƒAƒ“ƒhƒhƒƒbƒv‚µ‚Ä‚­‚¾‚³‚¢iƒTƒuƒtƒHƒ‹ƒ_‚à‘ÎÛ‚Æ‚È‚è‚Ü‚·j: "
+set /p d="å¯¾è±¡ãƒ•ã‚©ãƒ«ãƒ€ã‚’ãƒ‰ãƒ©ãƒƒã‚°ã‚¢ãƒ³ãƒ‰ãƒ‰ãƒ­ãƒƒãƒ—ã—ã¦ãã ã•ã„ï¼ˆã‚µãƒ–ãƒ•ã‚©ãƒ«ãƒ€ã‚‚å¯¾è±¡ã¨ãªã‚Šã¾ã™ï¼‰: "
 echo;
-set /p a="‘ÎÛƒtƒ@ƒCƒ‹‚ÌŠg’£q‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢i—á txtj: "
+set /p a="å¯¾è±¡ãƒ•ã‚¡ã‚¤ãƒ«ã®æ‹¡å¼µå­ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ï¼ˆä¾‹ txtï¼‰: "
 echo;
 
 cd /d %d%
 	
 rem -----Main-----
-rem %~dp0 ‚ÍA‚±‚Ìƒoƒbƒ`ƒtƒ@ƒCƒ‹‚ÌƒfƒBƒŒƒNƒgƒŠ
+rem %~dp0 ã¯ã€ã“ã®ãƒãƒƒãƒãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 forfiles /m *.%a% /s /c "cmd /c nkf.exe -w < @file > @file.bak"
 
 del /s "*.%a%" > nul
@@ -27,20 +27,20 @@ for /r %%i in ("*.bak") do (
 	rename "%%i" "%%~ni"
 )
 
-echo ----------------------•ÏŠ·‚µ‚½ƒtƒ@ƒCƒ‹----------------------
-rem ƒpƒX‚ğØ‚èÌ‚Ä‚½Šg’£q•t‚«ƒtƒ@ƒCƒ‹–¼‚Æ•ÏŠ·‚µ‚½ƒtƒ@ƒCƒ‹”‚ğo—Í
+echo ----------------------å¤‰æ›ã—ãŸãƒ•ã‚¡ã‚¤ãƒ«----------------------
+rem ãƒ‘ã‚¹ã‚’åˆ‡ã‚Šæ¨ã¦ãŸæ‹¡å¼µå­ä»˜ããƒ•ã‚¡ã‚¤ãƒ«åã¨å¤‰æ›ã—ãŸãƒ•ã‚¡ã‚¤ãƒ«æ•°ã‚’å‡ºåŠ›
 set count=0
 for /r %%i in (*.%a%) do (
 	echo %%~nxi
 	set /a count=!count!+1
 )
 echo;
-echo !count! ƒtƒ@ƒCƒ‹‚ğ UTF8iBOM–³‚µj‚É•ÏŠ·‚µ‚Ü‚µ‚½B
+echo !count! ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ UTF8ï¼ˆBOMç„¡ã—ï¼‰ã«å¤‰æ›ã—ã¾ã—ãŸã€‚
 echo --------------------------------------------------------
 
 echo;
 
-echo “K“–‚ÈƒL[‚ğ‰Ÿ‚µ‚ÄI—¹‚Å‚·B
+echo é©å½“ãªã‚­ãƒ¼ã‚’æŠ¼ã—ã¦çµ‚äº†ã§ã™ã€‚
 pause > nul
 
 endlocal

@@ -8,11 +8,11 @@ rem *******************************************************************
 
 setlocal enabledelayedexpansion
 
-echo UTF8（BOM 無し）に変換します。
+echo Convert to UTF8 (no BOM).
 echo;
-set /p d="対象フォルダをドラッグアンドドロップしてください（サブフォルダも対象となります）: "
+set /p d="Please drag and drop the target folder (sub-folders will be included): "
 echo;
-set /p a="対象ファイルの拡張子を入力してください（例 txt）: "
+set /p a="Please enter the extension of the target file (e.g. txt): "
 echo;
 
 cd /d %d%
@@ -27,20 +27,20 @@ for /r %%i in ("*.bak") do (
 	rename "%%i" "%%~ni"
 )
 
-echo ----------------------変換したファイル----------------------
-rem パスを切り捨てた拡張子付きファイル名と変換したファイル数を出力
+echo ----------------------Converted file----------------------
+rem Output file names with path truncated extensions and the number of converted files
 set count=0
 for /r %%i in (*.%a%) do (
 	echo %%~nxi
 	set /a count=!count!+1
 )
 echo;
-echo !count! ファイルを UTF8（BOM無し）に変換しました。
+echo Converted !count! file to UTF8 (no BOM).
 echo --------------------------------------------------------
 
 echo;
 
-echo 適当なキーを押して終了です。
+echo Press any key to finish.
 pause > nul
 
 endlocal

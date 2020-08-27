@@ -18,7 +18,6 @@ echo;
 cd /d %d%
 	
 rem -----Main-----
-rem %~dp0 は、このバッチファイルのディレクトリ
 forfiles /m *.%a% /s /c "cmd /c nkf.exe -w < @file > @file.bak"
 
 del /s "*.%a%" > nul

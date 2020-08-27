@@ -16,8 +16,7 @@ set /p a="Please enter the extension of the target file (e.g. txt): "
 echo;
 
 cd /d %d%
-	
-rem -----Main-----
+
 forfiles /m *.%a% /s /c "cmd /c nkf.exe -w < @file > @file.bak"
 
 del /s "*.%a%" > nul

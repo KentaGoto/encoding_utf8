@@ -8,3 +8,6 @@ Converts an arbitrary file to UTF8 (without BOM).
 
 - Windows  
 - nkf  
+
+## License
+MIT

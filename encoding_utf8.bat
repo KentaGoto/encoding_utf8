@@ -3,7 +3,8 @@
 rem *******************************************************************
 rem [Function description]
 rem Convert the file specified by the extension to UTF8 using nkf.
-rem Recursive processing of the directory, even if there is a space in the file name.
+rem Recursive processing of the directory, even if there is a space 
+rem in the file name.
 rem *******************************************************************
 
 setlocal enabledelayedexpansion
